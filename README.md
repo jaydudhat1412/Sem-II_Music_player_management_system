@@ -7,7 +7,8 @@ A robust Command-Line Interface (CLI) application developed in **Java** and back
 ## 🎧 Features
 
 ### 1. User & Admin Authentication
-* **User Management**: Support for user registration (with security questions/answers for password recovery), login, and profile management.
+* **User Registration & Validation**: Strict account creation rules (age > 10, username minimum 3 chars starting with a letter). Includes automatic login upon successful registration.
+* **Secure Authentication**: Secure login flow with custom CLI password masking (`***`), alongside security questions for password recovery.
 * **Admin Portal**: Admin-specific operations such as adding new songs, artists, and albums directly to the system catalog.
 * **Session Management**: Secure logout and session handling for both users and administrators.
 
@@ -143,17 +144,17 @@ Database connection credentials are set in [DatabaseConnection.java](file:///d:/
 2. Ensure the MySQL Connector/J JAR file is added to your project's library dependencies.
 3. Locate `src/Main.java`, right-click, and select **Run 'Main'**.
 
-### Option 2: Running via Command Line
-1. Navigate to the project root directory.
-2. Compile the source files, specifying the class path for the MySQL driver jar:
-   ```cmd
-   javac -cp "libs/mysql-connector-j-9.3.0.jar" -d bin src/*.java
+### Option 2: Running via Command Line (Terminal/PowerShell)
+1. Navigate to the project root directory (`d:\Music_player_Mangment_System`).
+2. Compile the source files into your output directory:
+   ```powershell
+   javac -d out\production\Music_player_Mangment_System src\*.java
    ```
-3. Execute the application:
-   ```cmd
-   java -cp "bin;libs/mysql-connector-j-9.3.0.jar" Main
+3. Execute the application (Ensure you include your specific path to the MySQL driver JAR):
+   ```powershell
+   java -cp "out\production\Music_player_Mangment_System;C:\Users\Admin\Downloads\mysql-connector-j-9.3.0.jar" Main
    ```
-   *(Note: Replace `libs/mysql-connector-j-9.3.0.jar` with the actual path to your JDBC driver file. On Linux/macOS, use a colon `:` instead of a semicolon `;` as a classpath separator).*
+   *(Note: The semicolon `;` is used as a classpath separator on Windows. If using Git Bash, enclose the classpath in single quotes `''`)*
 
 ---
 
